@@ -31,51 +31,50 @@ public class TaskControllerTest {
 		MockitoAnnotations.initMocks(this);
 	}
 	
-//	@Test
+	@Test
 	
-	//	public void naoDeveSalvarTarefaSemDescricao()  {
-	//Task todo = new Task();
-	//todo.setDueDate(LocalDate.now());
-	////todo.setTask("Descricao");
+	public void naoDeveSalvarTarefaSemDescricao()  {
+		Task todo = new Task();
+		todo.setDueDate(LocalDate.now());
+		//todo.setTask("Descricao");
 		// //TaskController controller = new TaskController();
-		// teste de novo
-	//try {
-	//	controller.save(todo);
-	//} catch (ValidationException e) {
-	//	Assert.assertEquals("Fill the task description", e.getMessage());
-	//}
+		try {
+			controller.save(todo);
+		} catch (ValidationException e) {
+			Assert.assertEquals("Fill the task description", e.getMessage());
+		}
 		
-	//}
+	}
 
-	//@Test
+	@Test
 	
-	//public void naoDeveSalvarTarefaSemData() {
+	public void naoDeveSalvarTarefaSemData() {
 		
-	//Task todo = new Task();
+		Task todo = new Task();
 		//todo.setDueDate(LocalDate.now());
-	//todo.setTask("Descricao");
+		todo.setTask("Descricao");
 		//TaskController controller = new TaskController();
-	//try {
-	//	controller.save(todo);
-	//} catch (ValidationException e) {
-	//	Assert.assertEquals("Fill the due date", e.getMessage());
-	//}
-	//}
+		try {
+			controller.save(todo);
+		} catch (ValidationException e) {
+			Assert.assertEquals("Fill the due date", e.getMessage());
+		}
+	}
 
-	//@Test
+	@Test
 	
-	//public void naoDeveSalvarTarefaComDataPassada() {
-	//Task todo = new Task();
-	//todo.setDueDate(LocalDate.of(2010, 01, 01));
-	//todo.setTask("Descricao");
+	public void naoDeveSalvarTarefaComDataPassada() {
+		Task todo = new Task();
+		todo.setDueDate(LocalDate.of(2010, 01, 01));
+		todo.setTask("Descricao");
 		//TaskController controller = new TaskController();
-	//try {
-	//	controller.save(todo);
-	//} catch (ValidationException e) {
-	//	Assert.assertEquals("Due date must not be in past", e.getMessage());
-	//}
-	//
-	//}
+		try {
+			controller.save(todo);
+		} catch (ValidationException e) {
+			Assert.assertEquals("Due date must not be in past", e.getMessage());
+		}
+		
+	}
 
 	@Test
 	
