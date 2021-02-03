@@ -35,5 +35,14 @@ pipeline {
                 } 
             }
         }
+        stage ('Functional Test') {
+            steps {
+                dir('functional-test') {
+        // serve para colocar os resultados num diretório específico
+                    git credentialsId: 'githublogin', url: 'https://github.com/thebobs/tasks-functional-tests'
+                    bat 'mvn test'
+                } 
+            }
+        }
     }
 }
