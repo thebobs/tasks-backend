@@ -18,8 +18,11 @@ pipeline {
         }
         stage ('API Test') {
             steps {
-                git credentialsId: 'githublogin', url: 'https://github.com/thebobs/tasks-api-test'
-                bat 'mvn test' 
+                dir('api-test') {
+        // serve para colocar os resultados num diretório específico
+                    git credentialsId: 'githublogin', url: 'https://github.com/thebobs/tasks-api-test'
+                    bat 'mvn test'
+                } 
             }
         }
     }
