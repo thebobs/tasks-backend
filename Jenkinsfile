@@ -25,7 +25,6 @@ pipeline {
                 } 
             }
         }
-    }
         stage ('Deploy Frontend') {
             steps {
                 dir('frontend') {
