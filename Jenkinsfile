@@ -31,7 +31,7 @@ pipeline {
         // serve para colocar os resultados num diretório específico
                     git credentialsId: 'githublogin', url: 'https://github.com/thebobs/tasks-frontend'
                     bat 'mvn clean package'
-                    deploy adapters: [tomcat8(credentialsId: 'TomcatLogin', path: '', url: 'http://localhost:8001/')], contextPath: 'tasks-backend', war: 'target/tasks.war'
+                    deploy adapters: [tomcat8(credentialsId: 'TomcatLogin', path: '', url: 'http://localhost:8001/')], contextPath: 'tasks', war: 'target/tasks.war'
                 } 
             }
         }
